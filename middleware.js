@@ -4,8 +4,6 @@ export async function middleware(req) {
   const token = req.cookies.get('token');
   const isAuthorized = !!token;
 
-  console.log(token)
-
   if (req.nextUrl.pathname.startsWith("/login") && isAuthorized) {
     return NextResponse.redirect(new URL("/", req.url));
   }

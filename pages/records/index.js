@@ -35,8 +35,7 @@ export default function Records() {
       token = token ? token.value : null; 
   
       axios
-        .get('/users/records', {
-          baseURL: process.env.BACKEND_URL,
+        .get(`${process.env.BACKEND_URL}/users/records`, {
           params: { page, limit },
           headers: {
             'Authorization': token,
@@ -81,8 +80,7 @@ export default function Records() {
     token = token ? token.value : null; 
 
     axios
-      .delete(`/users/records/${id}`, {
-        baseURL: process.env.BACKEND_URL,
+      .delete(`${process.env.BACKEND_URL}/users/records/${id}`, {
         headers: {
           'Authorization': token,
           'Access-Control-Allow-Origin': '*',

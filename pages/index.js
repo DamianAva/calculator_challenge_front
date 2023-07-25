@@ -46,8 +46,7 @@ export default function Home() {
     let token = await cookieStore.get('token')
     token = token ? token.value : null; 
 
-    axios.post('/operation', operationData, {
-      baseURL: process.env.BACKEND_URL,
+    axios.post(`${process.env.BACKEND_URL}/operation`, operationData, {
       headers: {
         'Authorization': token,
         'Access-Control-Allow-Origin': '*',

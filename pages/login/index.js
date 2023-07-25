@@ -32,8 +32,7 @@ export default function Login() {
       password: password,
     }
 
-    axios.post('/users/login', loginData, {
-      baseURL: process.env.BACKEND_URL,
+    axios.post(`${process.env.BACKEND_URL}/users/login`, loginData, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers':
@@ -44,7 +43,6 @@ export default function Login() {
       document.cookie = `token=${res.data.accessToken}`;
       push('/')
     }).catch((err) => {
-      console.log(err)
       if (err.response && err.response.data) {
         setIssue(JSON.stringify(err.response.data))
       } else {
